@@ -1,22 +1,30 @@
-import React from 'react';
-import {Container,CardColumns} from 'react-bootstrap';
-import PokemonCard from './PokemonCard'
+import React from "react";
+import { Container, CardColumns, Spinner, Row, Col } from "react-bootstrap";
+import PokemonCard from "./PokemonCard";
 
-class PokemonList extends React.Component{
-  render(){
-    const { pokemons } = this.props
-    return(
-    <Container>
+function PokemonList(props) {
+  const { pokemons, errPokemons, loadPokemons } = props;
+  return (
+    <>
+      {loadPokemons && (
+        <div className="d-flex justify-content-center mt-5">
+          <Spinner
+            animation="border"
+            role="status"
+            style={{ width: "500px", height: "500px" }}
+          />
+        </div>
+      )}
+      <Container>
         <CardColumns className="mt-5">
-        {
-            pokemons && pokemons.map(pokemon => {
-                return (<PokemonCard key={pokemon.id} pokemon={pokemon}/>)
-            })
-        }
+          {pokemons.map((pokemon) => {
+            return <PokemonCard key={pokemon.id} pokemon={pokemon} />;
+          })}
+          {errPokemons && <h4>{errPokemons}</h4>}
         </CardColumns>
-    </Container>
-    )
-  }
+      </Container>
+    </>
+  );
 }
 
-export default PokemonList
+export default PokemonList;

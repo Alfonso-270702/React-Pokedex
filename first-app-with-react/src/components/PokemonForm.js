@@ -1,37 +1,33 @@
-import React, { Component } from 'react'
-import {Button} from 'react-bootstrap';
+import React from "react";
+import { Button } from "react-bootstrap";
+import usePokemonForm from "../hooks/usePokemonForm";
 
-export class PokemonForm extends Component {
-    constructor(){
-        super()
-        this.state = {
-            inputPokemonName: ''
-        }
-    }
+function PokemonForm(props) {
+  const { searchPokemonName } = props;
+  const {
+    submitForm,
+    handleOnChange,
+    input: inputPokemonName,
+  } = usePokemonForm(searchPokemonName);
 
-    submitForm = (event) => {
-        event.preventDefault()
-        this.props.searchPokemonName(this.state.inputPokemonName)
-    }
-
-    handleOnChange = (event) => {
-        this.setState({
-            inputPokemonName: event.target.value
-        })
-    }
-
-    render() {
-        const {inputPokemonName} = this.state
-        return (
-            <>
-              <form onSubmit={this.submitForm} className="d-flex justify-content-center mt-5">
-                  <input type="text" placeholder="Search Pokemon Name" value={inputPokemonName} onChange={this.handleOnChange} />
-                  <Button type="submit" className="btn ml-2">Search</Button>
-              </form>  
-            </>
-        )
-    }
+  return (
+    <>
+      <form
+        onSubmit={submitForm}
+        className="d-flex justify-content-center mt-5"
+      >
+        <input
+          type="text"
+          placeholder="Search Pokemon Name"
+          value={inputPokemonName}
+          onChange={handleOnChange}
+        />
+        <Button type="submit" className="btn ml-2">
+          Search
+        </Button>
+      </form>
+    </>
+  );
 }
 
-export default PokemonForm
-
+export default PokemonForm;

@@ -1,47 +1,31 @@
-import React from 'react';
-import PokemonList from './components/PokemonList'
-import PokemonForm from './components/PokemonForm'
-import {Container} from 'react-bootstrap'
+import React from "react";
+import PokemonList from "./components/PokemonList";
+import PokemonForm from "./components/PokemonForm";
+import { Container } from "react-bootstrap";
+import useFetchPokemon from "./hooks/useFetchPokemon";
 
-class App extends React.Component{
-  constructor(){
-    super()
-    this.state = {
-      pokemons: []
-    }
-  }
+function App() {
+  const {
+    data: pokemons,
+    errData: errPokemons,
+    loadData: loadPokemons,
+    SearchPokemon,
+  } = useFetchPokemon("https://api.pokemontcg.io/v1/cards");
 
-  componentDidMount(){
-    fetch("https://api.pokemontcg.io/v1/cards")
-    .then(res => res.json())
-    .then(data => {
-      this.setState({
-        pokemons: data.cards
-      })
-    })
-    .catch(console.log)
-  }
+  const searchPokemonName = (name) => {
+    SearchPokemon(name);
+  };
 
-  searchPokemonName = (name) => {
-    fetch(`https://api.pokemontcg.io/v1/cards?name=${name}`)
-    .then(res => res.json())
-    .then(data => {
-      this.setState({
-        pokemons: data.cards
-      })
-    })
-    .catch(console.log)
-  }
-
-  render(){
-    const {pokemons} = this.state
-    return (
-      <Container>
-        <PokemonForm searchPokemonName={this.searchPokemonName} />
-        <PokemonList pokemons={pokemons}/>
-      </Container>
-    )
-  }
+  return (
+    <Container>
+      <PokemonForm searchPokemonName={searchPokemonName} />
+      <PokemonList
+        pokemons={pokemons}
+        errPokemons={errPokemons}
+        loadPokemons={loadPokemons}
+      />
+    </Container>
+  );
 }
 
 export default App;
