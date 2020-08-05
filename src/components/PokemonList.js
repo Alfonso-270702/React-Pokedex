@@ -15,14 +15,14 @@ function PokemonList(props) {
           />
         </div>
       )}
-      <Container>
+      <>
         <CardColumns className="mt-5">
           {pokemons.map((pokemon) => {
             return <PokemonCard key={pokemon.id} pokemon={pokemon} />;
           })}
         </CardColumns>
-        {errPokemons && <h4>{errPokemons}</h4>}
-      </Container>
+      </>
+      {errPokemons && <h4>{errPokemons}</h4>}
     </>
   );
 }

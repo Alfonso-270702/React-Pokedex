@@ -10,7 +10,7 @@ function FavouritePage() {
     <Container>
       <CardColumns className="mt-5">
         {pokemons.map((pokemon) => {
-          return <PokemonCard pokemon={pokemon} />;
+          return <PokemonCard key={pokemon.id} pokemon={pokemon} />;
         })}
       </CardColumns>
     </Container>
