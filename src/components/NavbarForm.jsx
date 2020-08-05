@@ -1,22 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import usePokemonForm from "../hooks/usePokemonForm";
 
 function NavbarForm(props) {
   const { searchPokemonName } = props;
+  const history = useHistory();
   const {
     submitForm,
     handleOnChange,
     input: inputPokemonName,
   } = usePokemonForm(searchPokemonName);
 
+  function toHomePage() {
+    history.push("/");
+  }
+  function toFavouritePage() {
+    history.push("/favourite-pokemon");
+  }
+
   return (
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand>Navbar</Navbar.Brand>
       <Nav className="mr-auto">
-        <Link to="/">Home</Link>
-        <Link to="/detail">Detail</Link>
+        <Nav.Link onClick={toHomePage}>Home</Nav.Link>
+        <Nav.Link onClick={toFavouritePage}>Favourite</Nav.Link>
       </Nav>
       <Form inline onSubmit={submitForm}>
         <FormControl

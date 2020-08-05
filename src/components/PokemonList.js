@@ -11,7 +11,7 @@ function PokemonList(props) {
           <Spinner
             animation="border"
             role="status"
-            style={{ width: "500px", height: "500px" }}
+            style={{ width: "400px", height: "400px" }}
           />
         </div>
       )}

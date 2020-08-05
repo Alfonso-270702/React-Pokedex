@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {
-  Container,
-  CardColumns,
-  Spinner,
-  Card,
-  Row,
-  Col,
-} from "react-bootstrap";
+import { Container, Spinner, Card, Row, Col } from "react-bootstrap";
 
 function Detail() {
   const { id } = useParams();

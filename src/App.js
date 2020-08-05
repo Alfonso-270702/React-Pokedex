@@ -2,7 +2,7 @@ import React from "react";
 import NavbarForm from "./components/NavbarForm";
 import useFetchPokemon from "./hooks/useFetchPokemon";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Home, Detail } from "./pages";
+import { Home, Detail, FavouritePage } from "./pages";
 
 function App() {
   const { SearchPokemon } = useFetchPokemon(
@@ -23,6 +23,9 @@ function App() {
           </Route>
           <Route path="/detail/:id">
             <Detail />
+          </Route>
+          <Route path="/favourite-pokemon">
+            <FavouritePage />
           </Route>
         </Switch>
       </Router>
