@@ -5,7 +5,9 @@ import usePokemonForm from "../hooks/usePokemonForm";
 
 function NavbarForm(props) {
   const { searchPokemonName } = props;
+
   const history = useHistory();
+
   const {
     submitForm,
     handleOnChange,
@@ -21,7 +23,7 @@ function NavbarForm(props) {
 
   return (
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand>Navbar</Navbar.Brand>
+      <Navbar.Brand>Poke Poke</Navbar.Brand>
       <Nav className="mr-auto">
         <Nav.Link onClick={toHomePage}>Home</Nav.Link>
         <Nav.Link onClick={toFavouritePage}>Favourite</Nav.Link>
@@ -34,7 +36,9 @@ function NavbarForm(props) {
           value={inputPokemonName}
           onChange={handleOnChange}
         />
-        <Button variant="outline-info">Search</Button>
+        <Button variant="outline-info" type="submit">
+          Search
+        </Button>
       </Form>
     </Navbar>
   );

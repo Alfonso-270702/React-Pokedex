@@ -47,7 +47,8 @@ function Detail() {
                     <li>Type: {pokemon.types}</li>
                     <li>Super Type: {pokemon.supertype}</li>
                     <li>Sub Type: {pokemon.subtype}</li>
-                    <li>Hp: {pokemon.hp}</li>
+                    <li>Series: {pokemon.series}</li>
+                    <li>Rarity: {pokemon.rarity}</li>
                   </ul>
                 </div>
               </Col>

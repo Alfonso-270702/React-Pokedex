@@ -31,7 +31,6 @@ function PokemonCard(props) {
       <Card.Img variant="top" src={pokemon.imageUrlHiRes} />
       <Card.Body>
         <Card.Title>{pokemon.name}</Card.Title>
-        <Card.Text>{pokemon.type} </Card.Text>
         <Button
           variant="primary"
           className="btn-sm"

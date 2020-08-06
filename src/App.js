@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Home, Detail, FavouritePage } from "./pages";
 
 function App() {
-  const { SearchPokemon } = useFetchPokemon(
+  const { data, SearchPokemon } = useFetchPokemon(
     "https://api.pokemontcg.io/v1/cards"
   );
 
@@ -19,7 +19,7 @@ function App() {
         <NavbarForm searchPokemonName={searchPokemonName} />
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home data={data} />
           </Route>
           <Route path="/detail/:id">
             <Detail />

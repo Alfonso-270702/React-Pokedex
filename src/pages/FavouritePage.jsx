@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import PokemonCard from "../components/PokemonCard";
 
 function FavouritePage() {
-  const pokemons = useSelector((state) => state.pokemons);
+  const pokemons = useSelector((state) => state.favouritePokemon.pokemons);
 
   return (
     <Container>

@@ -1,22 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function FetchPokemon(url) {
   const [data, setData] = useState([]);
   const [errData, setErrData] = useState(null);
   const [loadData, setLoadData] = useState(false);
-
-  useEffect(() => {
-    setLoadData(true);
-    fetch(url)
-      .then((res) => res.json())
-      .then((responseData) => {
-        setData(responseData.cards);
-      })
-      .catch((err) => setErrData(err.message))
-      .finally((_) => {
-        setLoadData(false);
-      });
-  }, [url]);
 
   function SearchPokemon(name) {
     setLoadData(true);
