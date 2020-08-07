@@ -15,7 +15,7 @@ function PokemonList(props) {
     );
   } else {
     return (
-      <>
+      <div data-testid="pokemon-card">
         {loadPokemons && (
           <div className="d-flex justify-content-center mt-5">
             <Spinner
@@ -32,7 +32,7 @@ function PokemonList(props) {
           })}
         </CardColumns>
         {errPokemons && <h4>{errPokemons}</h4>}
-      </>
+      </div>
     );
   }
 }

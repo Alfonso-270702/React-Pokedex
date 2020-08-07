@@ -7,7 +7,7 @@ function FavouritePage() {
   const pokemons = useSelector((state) => state.favouritePokemon.pokemons);
 
   return (
-    <Container>
+    <Container data-testid="fav-card">
       <CardColumns className="mt-5">
         {pokemons.map((pokemon) => {
           return <PokemonCard key={pokemon.id} pokemon={pokemon} />;

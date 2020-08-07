@@ -31,8 +31,12 @@ function NavbarForm(props) {
         <Navbar bg={themeColor} variant="dark">
           <Navbar.Brand>Poke Poke</Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link onClick={toHomePage}>Home</Nav.Link>
-            <Nav.Link onClick={toFavouritePage}>Favourite</Nav.Link>
+            <Nav.Link data-testid="home-link" onClick={toHomePage}>
+              Home
+            </Nav.Link>
+            <Nav.Link data-testid="fav-link" onClick={toFavouritePage}>
+              Favourite
+            </Nav.Link>
           </Nav>
           <Form inline onSubmit={submitForm}>
             <FormControl

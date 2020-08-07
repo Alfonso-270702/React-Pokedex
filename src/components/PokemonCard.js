@@ -27,7 +27,7 @@ function PokemonCard(props) {
   }
 
   return (
-    <Card>
+    <Card data-testid="pokemon-children">
       <Card.Img variant="top" src={pokemon.imageUrlHiRes} />
       <Card.Body>
         <Card.Title>{pokemon.name}</Card.Title>
